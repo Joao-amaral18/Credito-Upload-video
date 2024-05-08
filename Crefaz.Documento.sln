@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{EB581D0A-1FC7-4E74-85FA-A1155C154AF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crefaz.Documento.Application", "src\Crefaz.Documento.Application\Crefaz.Documento.Application.csproj", "{912AA085-E7BD-43F5-8CA1-A6BB15820B55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crefaz.Documento.Domain", "src\Crefaz.Documento.Domain\Crefaz.Documento.Domain.csproj", "{7DBABCBB-5639-4A34-B4AC-A96909888684}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crefaz.Documento.Service", "src\Crefaz.Documento.Service\Crefaz.Documento.Service.csproj", "{82189E24-9944-4EC6-80B2-B0042760A5C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crefaz.Documento.Infra.Data", "src\Crefaz.Documento.Infra.Data\Crefaz.Documento.Infra.Data.csproj", "{91C3EBC2-C578-4F85-8AF6-32789BBA821B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crefaz.Documento.Infra.CrossCutting", "src\Crefaz.Documento.Infra.CrossCutting\Crefaz.Documento.Infra.CrossCutting.csproj", "{17D75DF2-194C-40EC-89F8-D45900E53839}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{912AA085-E7BD-43F5-8CA1-A6BB15820B55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{912AA085-E7BD-43F5-8CA1-A6BB15820B55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{912AA085-E7BD-43F5-8CA1-A6BB15820B55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{912AA085-E7BD-43F5-8CA1-A6BB15820B55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DBABCBB-5639-4A34-B4AC-A96909888684}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DBABCBB-5639-4A34-B4AC-A96909888684}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DBABCBB-5639-4A34-B4AC-A96909888684}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DBABCBB-5639-4A34-B4AC-A96909888684}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82189E24-9944-4EC6-80B2-B0042760A5C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82189E24-9944-4EC6-80B2-B0042760A5C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82189E24-9944-4EC6-80B2-B0042760A5C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82189E24-9944-4EC6-80B2-B0042760A5C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91C3EBC2-C578-4F85-8AF6-32789BBA821B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91C3EBC2-C578-4F85-8AF6-32789BBA821B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91C3EBC2-C578-4F85-8AF6-32789BBA821B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91C3EBC2-C578-4F85-8AF6-32789BBA821B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17D75DF2-194C-40EC-89F8-D45900E53839}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17D75DF2-194C-40EC-89F8-D45900E53839}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17D75DF2-194C-40EC-89F8-D45900E53839}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17D75DF2-194C-40EC-89F8-D45900E53839}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{912AA085-E7BD-43F5-8CA1-A6BB15820B55} = {EB581D0A-1FC7-4E74-85FA-A1155C154AF8}
+		{7DBABCBB-5639-4A34-B4AC-A96909888684} = {EB581D0A-1FC7-4E74-85FA-A1155C154AF8}
+		{82189E24-9944-4EC6-80B2-B0042760A5C1} = {EB581D0A-1FC7-4E74-85FA-A1155C154AF8}
+		{91C3EBC2-C578-4F85-8AF6-32789BBA821B} = {EB581D0A-1FC7-4E74-85FA-A1155C154AF8}
+		{17D75DF2-194C-40EC-89F8-D45900E53839} = {EB581D0A-1FC7-4E74-85FA-A1155C154AF8}
+	EndGlobalSection
+EndGlobal

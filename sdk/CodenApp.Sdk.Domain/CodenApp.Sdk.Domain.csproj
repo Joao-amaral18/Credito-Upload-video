@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CodenApp.Sdk.Domain.Abstraction\CodenApp.Sdk.Domain.Abstraction.csproj" />
+    <ProjectReference Include="..\CodenApp.Sdk.Infrastructure.Abstraction\CodenApp.Sdk.Infrastructure.Abstraction.csproj" />
+    
+  </ItemGroup>
+
+</Project>

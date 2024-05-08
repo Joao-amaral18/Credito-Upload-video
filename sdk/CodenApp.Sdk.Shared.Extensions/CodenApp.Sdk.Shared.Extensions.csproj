@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="27.2.1" />
+    <PackageReference Include="NetTopologySuite" Version="2.4.0" />
+    <PackageReference Include="RestSharp" Version="107.3.0" />
+    <ProjectReference Include="..\CodenApp.Sdk.Infrastructure\CodenApp.Sdk.Infrastructure.csproj" />
+    <ProjectReference Include="..\CodenApp.Sdk.Domain.Abstraction\CodenApp.Sdk.Domain.Abstraction.csproj" />
+  </ItemGroup>
+
+</Project>

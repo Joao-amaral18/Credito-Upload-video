@@ -1,0 +1,90 @@
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+  - main
+  - develop
+  - release/*
+  - V2/main
+  - V2/develop
+  - V2/release/*
+  - V5/develop
+  - V5/release/*
+  - V3/main
+  - V3/develop
+  - V3/release/*
+  - V4/develop
+  - V4/release/*
+
+pool:
+  vmImage: "ubuntu-latest"
+
+variables:
+  buildConfiguration: "Release"
+
+steps:
+  # - script: dotnet build --configuration $(buildConfiguration)
+  #   displayName: 'dotnet build $(buildConfiguration)'
+  # - ${{ if eq(variables['Build.SourceBranchName'], 'main') }}:
+  #   - task: SonarQubePrepare@5
+  #     inputs:
+  #       SonarQube: 'SonarQube'
+  #       scannerMode: 'MSBuild'
+  #       projectKey: 'Sistemas_Credito-Api_AYQLlLX_flPWVHnq0ZFL'
+  #       projectName: 'Credito-Api'
+
+  - task: UseDotNet@2
+    displayName: ".NET 6.0.101"
+    inputs:
+      version: "6.0.101"
+      packageType: sdk
+  - script: dotnet publish ./src/Crefaz.Documento.Application/Crefaz.Documento.Application.csproj --configuration $(buildConfiguration) -o $(Build.BinariesDirectory)
+    displayName: "dotnet publish $(buildConfiguration)"
+
+  # - task: DotNetCoreCLI@2
+  #   displayName: "Test"
+  #   inputs:
+  #     command: test
+  #     projects: '**/*test/Crefaz.Credito.Test.Unit/Crefaz.Credito.Test.Unit.csproj'
+  #     arguments: '--configuration $(buildConfiguration) --collect "XPlat Code coverage"'
+
+  # - script: 'dotnet tool install --global dotnet-reportgenerator-globaltool --version 4.5.8'
+  #   displayName: 'Install ReportGenerator tool'
+
+  # - script: 'reportgenerator -reports:$(Agent.TempDirectory)/**/coverage.cobertura.xml -targetdir:$(Build.SourcesDirectory)/coverlet/reports -reporttypes:"Cobertura"'
+  #   displayName: 'Create reports'
+
+  # - task: ArchiveFiles@2
+  #   inputs:
+  #     rootFolderOrFile: '$(Build.BinariesDirectory)'
+  #     includeRootFolder: false
+  #     archiveType: 'zip'
+  #     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+  #     replaceExistingArchive: true
+
+  # - task: PublishCodeCoverageResults@1
+  #   displayName: 'Publish code coverage'
+  #   inputs:
+  #     codeCoverageTool: Cobertura
+  #     summaryFileLocation: '$(Build.SourcesDirectory)/coverlet/reports/Cobertura.xml'
+
+  - task: ArchiveFiles@2
+    inputs:
+      rootFolderOrFile: "$(Build.BinariesDirectory)"
+      includeRootFolder: false
+      archiveType: "zip"
+      archiveFile: "$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip"
+      replaceExistingArchive: true
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: "$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip"
+      ArtifactName: "drop-api"
+
+  # - ${{ if eq(variables['Build.SourceBranchName'], 'main') }}:
+  #   - task: SonarQubeAnalyze@5
+
+  #   - task: SonarQubePublish@5
+  #     inputs:
+  #       pollingTimeoutSec: '300'

@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\..\sdk\CodenApp.Sdk.Domain.Abstraction\CodenApp.Sdk.Domain.Abstraction.csproj"/>
+        <ProjectReference Include="..\..\sdk\CodenApp.Sdk.Shared.Extensions\CodenApp.Sdk.Shared.Extensions.csproj"/>
+        <ProjectReference Include="..\..\sdk\CodenApp.Sdk.Domain\CodenApp.Sdk.Domain.csproj"/>
+        <ProjectReference Include="..\..\sdk\CodenApp.Sdk.Infrastructure.Abstraction\CodenApp.Sdk.Infrastructure.Abstraction.csproj"/>
+        <PackageReference Include="CsvHelper" Version="27.2.1"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AutoMapper" Version="11.0.1"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.5">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.5"/>
+        <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0"/>
+
+    </ItemGroup>
+
+</Project>

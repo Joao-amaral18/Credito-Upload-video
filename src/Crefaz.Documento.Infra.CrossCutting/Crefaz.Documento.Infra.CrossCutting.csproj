@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\sdk\CodenApp.Sdk.Domain.Abstraction\CodenApp.Sdk.Domain.Abstraction.csproj"/>
+        <ProjectReference Include="..\..\sdk\CodenApp.Sdk.Domain\CodenApp.Sdk.Domain.csproj"/>
+        <ProjectReference Include="..\..\sdk\CodenApp.Sdk.Infrastructure.Abstraction\CodenApp.Sdk.Infrastructure.Abstraction.csproj"/>
+        <ProjectReference Include="..\..\sdk\CodenApp.Sdk.Infrastructure\CodenApp.Sdk.Infrastructure.csproj"/>
+        <ProjectReference Include="..\Crefaz.Documento.Domain\Crefaz.Documento.Domain.csproj"/>
+        <ProjectReference Include="..\Crefaz.Documento.Service\Crefaz.Documento.Service.csproj"/>
+        <ProjectReference Include="..\Crefaz.Documento.Infra.Data\Crefaz.Documento.Infra.Data.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.1"/>
+    </ItemGroup>
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+</Project>

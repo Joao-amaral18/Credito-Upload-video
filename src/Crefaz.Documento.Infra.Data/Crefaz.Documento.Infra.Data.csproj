@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\sdk\CodenApp.Sdk.Infrastructure.Abstraction\CodenApp.Sdk.Infrastructure.Abstraction.csproj"/>
+        <ProjectReference Include="..\..\sdk\CodenApp.Sdk.Infrastructure\CodenApp.Sdk.Infrastructure.csproj"/>
+        <ProjectReference Include="..\Crefaz.Documento.Domain\Crefaz.Documento.Domain.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5"/>
+        <PackageReference Include="Dapper" Version="2.0.151"/>
+    </ItemGroup>
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+</Project>

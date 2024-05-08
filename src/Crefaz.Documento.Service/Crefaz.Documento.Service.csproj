@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <ItemGroup>
+        <ProjectReference Include="..\Crefaz.Documento.Infra.Data\Crefaz.Documento.Infra.Data.csproj"/>
+        <ProjectReference Include="..\Crefaz.Documento.Domain\Crefaz.Documento.Domain.csproj"/>
+    </ItemGroup>
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+</Project>
