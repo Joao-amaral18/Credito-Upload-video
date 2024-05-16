@@ -5,11 +5,9 @@ using Crefaz.Credito.Infra.CrossCutting.Bus;
 using Crefaz.Credito.Infra.CrossCutting.IocExtensions;
 using Crefaz.Credito.Infra.CrossCutting.Logger;
 using Crefaz.Documento.Application.Interfaces;
-using Crefaz.Documento.Application.services;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Crefaz.Documento.Infra.Data.Context;
@@ -17,6 +15,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Azure.Services.AppAuthentication;
 using Microsoft.Azure.KeyVault;
 using Microsoft.Extensions.Configuration.AzureKeyVault;
+using Crefaz.Documento.Domain.Entities;
+using Crefaz.Documento.Application.Services;
+using Crefaz.Documento.Infra.Data.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,6 +31,7 @@ builder.Services.AddSwaggerConfig("VideoUpload API", "V1");
 builder.Services.AddScoped<IEventStore, InConsoleEventStore>();
 builder.Services.AddScoped<IMediatorHandler, InMemoryBus>();
 builder.Services.AddScoped<IVideoService, VideoUploadService>();
+builder.Services.AddScoped<IVideoRepository, VideoRepository>();
 
 string azureVaultUrl = builder.Configuration["KeyVault:Url"];
 
