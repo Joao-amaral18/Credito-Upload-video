@@ -19,7 +19,7 @@ namespace Crefaz.Documento.Application.Services
         private readonly IMediatorHandler _mediator;
         private readonly ShareClient _shareClient;
         private readonly IVideoRepository _videoRepository;
-        private const long MaxFileSize = 5 * 1024 * 1024; // 5MB
+        private const long MaxFileSize = 1 * 1024 * 1024 * 1024; // 1GB
 
         public VideoUploadService(
             IConfiguration configuration,
@@ -37,14 +37,14 @@ namespace Crefaz.Documento.Application.Services
             _shareClient = new ShareClient(connectionString, shareName);
         }
 
-        public async Task<bool> UploadVideo(IFormFile file)
+        public async Task<string> UploadVideo(IFormFile file)
         {
             try
             {
                 if (file.Length > MaxFileSize)
                 {
                     Console.WriteLine("File size exceeds the limit (5MB).");
-                    return false;
+                    return null;
                 }
 
                 string tempFilePath = Path.Combine(
@@ -56,19 +56,20 @@ namespace Crefaz.Documento.Application.Services
                     await file.CopyToAsync(fileStream);
                 }
                 string duration = string.Empty;
-
+                string fileName;
                 try
                 {
-                    using ShellObject shell = ShellObject.FromParsingName(tempFilePath);
+                    using (ShellObject shell = ShellObject.FromParsingName(tempFilePath)){
                     IShellProperty prop = shell.Properties.System.Media.Duration;
                     duration = prop.FormatForDisplay(PropertyDescriptionFormatOptions.None);
+                    }
                 }
                 catch (Exception) { }
 
                 using (var stream = new FileStream(tempFilePath, FileMode.Open))
                 {
                     var directoryClient = _shareClient.GetDirectoryClient("temp");
-                    var fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+                    fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
                     var fileClient = directoryClient.GetFileClient(fileName);
 
                     await fileClient.CreateAsync(stream.Length);
@@ -77,10 +78,10 @@ namespace Crefaz.Documento.Application.Services
 
                     var retornoInsert = await _videoRepository.InsertVideo(
                         new Video(
-                            fileName,
-                            fileClient.Path.ToString(),
-                            fileInfo.Value.ContentLength.ToString(),
-                            duration.ToString()
+                            nome:fileName,
+                            caminhoArquivo: fileClient.Path.ToString(),
+                            tamanho:fileInfo.Value.ContentLength.ToString(),
+                            duracao: duration.ToString()
                         )
                     );
                     if (retornoInsert == fileName)
@@ -89,12 +90,12 @@ namespace Crefaz.Documento.Application.Services
 
                 File.Delete(tempFilePath);
 
-                return true;
+                return fileName;
             }
             catch (RequestFailedException ex)
             {
                 Console.WriteLine($"Error uploading file: {ex.Message}");
-                return false;
+                return null;
             }
         }
 

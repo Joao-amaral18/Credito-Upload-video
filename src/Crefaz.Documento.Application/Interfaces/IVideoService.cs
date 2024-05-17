@@ -6,7 +6,7 @@ namespace Crefaz.Documento.Application.Interfaces;
 
 public interface IVideoService
 {
-    Task<bool> UploadVideo(IFormFile uploadResquest);
+    Task<string> UploadVideo(IFormFile uploadResquest);
     Task<Stream> DownloadVideo(string fileName);
     Task<IEnumerable<Video>> ListAllVideos();
 }

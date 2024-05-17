@@ -18,8 +18,11 @@ using Microsoft.Extensions.Configuration.AzureKeyVault;
 using Crefaz.Documento.Domain.Entities;
 using Crefaz.Documento.Application.Services;
 using Crefaz.Documento.Infra.Data.Repository;
+using Microsoft.AspNetCore.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.WebHost.ConfigureKestrel(options => options.Limits.MaxRequestBodySize = 1024 * 1024 * 1024);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

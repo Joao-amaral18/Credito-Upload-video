@@ -33,8 +33,10 @@ public class PdfController : ControllerBase
         {
             return BadRequest("No file uploaded.");
         }
-        await _videoService.UploadVideo(uploadResquest);
-        return Ok("Video uploaded successfully.");
+        var file = await _videoService.UploadVideo(uploadResquest);
+        if (file is null) return null;
+
+        return Ok($"Video uploaded successfully. /n {file}");
     }
 
     [HttpGet("list")]
